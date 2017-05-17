@@ -121,7 +121,7 @@
         })
             .state("auth.rowlot-listtask", {
             page_title: "Rowlot - Dashboard",
-            url: "/task",
+            url: "/taskList",
             templateUrl: "views/rowlot/listtask.html",
             controller: "RowlotController"
         })
@@ -130,6 +130,14 @@
             page_title: "Rowlot - Profile",
             url: "/profile",
             templateUrl: "views/rowlot/profile.html",
+            controller: "RowlotController"
+        })
+        
+        
+        .state("auth.task", {
+            page_title: "Rowlot - Task",
+            url: "/task",
+            templateUrl: "views/rowlot/task.html",
             controller: "RowlotController"
         })
 
@@ -396,7 +404,7 @@
             auth.createUserWithEmailAndPassword(credentials.email,credentials.password).then(function(user){
                 if(user){
                     console.log('uid',user.uid);                  
-                    writeUserData(user.uid,credentials.email, credentials.password,'imagencita', credentials.name, credentials.lastName, credentials.type);                      
+                    writeUserData(user.uid,credentials.email, credentials.password,'https://firebasestorage.googleapis.com/v0/b/rowlot-c9891.appspot.com/o/DefaultProfilePicture.jpg?alt=media&token=3ccf226a-5a68-4076-acc5-1fd4be342d0f', credentials.name, credentials.lastName, credentials.type);                      
                     defered.resolve();
                 }else{
                     console.error("Authentication failed:", error);
@@ -454,10 +462,11 @@
     RowlotController.$inject = ['$scope', '$timeout', 'RowlotService',"CurrentUserService","toastr"];
 
     function RowlotController($scope, $timeout,  RowlotService, CurrentUserService, toastr) { 
-        
+
         $scope.users = [];
         $scope.profile = [];    
         $scope.unidades = []; 
+        $scope.lecturas = []; 
 
         var loadCurrentUser = function(){
             return RowlotService.getCurrentUser().then(function(response){
@@ -479,8 +488,8 @@
             return RowlotService.getUsers().then(function (response) {          
                 //    console.log("Users", response);
                 $scope.users = response;
-                console.log("ENTRO ACTIVIDAD",$scope.users);
-               // console.log("SCOPE USERS",$scope.users);
+                //console.log("ENTRO ACTIVIDAD",$scope.users);
+                // console.log("SCOPE USERS",$scope.users);
             }, function (error) {
                 toastr.error("Error al cargar usuarios");
                 console.log(error);
@@ -488,15 +497,15 @@
         }
 
 
-      
-        var loadCurrentActivity = function(){
-            return RowlotService.getCurrentActivity().then(function(response){
-               // console.log("aaaaaa",response)
-                $scope.tarea = response;
-                console.log("VISIBLE", $scope.tarea.Visible);
-                var visibleSi = showActivity($scope.tarea.Visible);
+
+        var loadCurrentUnidad = function(){
+            return RowlotService.getCurrentUnidad().then(function(response){
+                // console.log("aaaaaa",response)
+                $scope.unidades = response;
+                console.log("VISIBLE", $scope.unidades.Visible);
+                var visibleSi = showActivity($scope.unidades.Visible);
                 $scope.showActivity = visibleSi;
-                var visibleNo = NoShowActivity($scope.tarea.Visible);
+                var visibleNo = NoShowActivity($scope.unidades.Visible);
                 $scope.NoShowActivity = visibleNo;
                 console.log("SHOW", visible);
             }, function (error) {
@@ -505,18 +514,30 @@
             });
         }
 
-        var loadActividades = function(){
+        var loadUnidades = function(){
             return RowlotService.getUnidades().then(function (response) {          
-               // console.log("Actividades", response);
+                // console.log("Actividades", response);
                 $scope.unidades = response;
-               // console.log("ENTRO ACTIVIDAD",$scope.unidades);
+                //console.log("ENTRO ACTIVIDAD",$scope.unidades);
             }, function (error) {
                 toastr.error("Error al cargar las unidades");
                 console.log(error);
 
             });     
         }
-  /*
+
+        var loadLecturas = function(){
+            return RowlotService.getLecturas().then(function (response) {          
+                //    console.log("Users", response);
+                $scope.lecturas = response;
+                console.log("ENTRO LECTURA",$scope.lecturas);
+                // console.log("SCOPE USERS",$scope.users);
+            }, function (error) {
+                toastr.error("Error al cargar lecturas");
+                console.log(error);
+            });     
+        }
+        /*
         $scope.addTitleActividad = function(tareaId, title){
             console.log("Actividades");
             var val = angular.element('#'+tareaId).val();      
@@ -528,6 +549,9 @@
             loadCurrentUser();
         }
         */
+
+
+
 
         $scope.addCoins = function(userId, coins){                
             var val = angular.element('#'+userId).val();      
@@ -613,8 +637,9 @@
         var init = function(){
             loadUsers();
             loadCurrentUser();
-            loadCurrentActivity();
-            loadActividades();
+            loadCurrentUnidad();
+            loadUnidades();
+            loadLecturas();
         }();
 
     }
@@ -636,6 +661,7 @@
 
     function RowlotService(RestService, $q) {
 
+        //USUARIOS
         var getCurrentUser = function(){
             var defered = $q.defer();
             var promise = defered.promise;
@@ -674,8 +700,8 @@
         }
 
 
-
-        var getCurrentActivity = function(){
+        //UNIDADES
+        var getCurrentUnidad = function(){
 
             var defered = $q.defer();
             var promise = defered.promise;
@@ -698,12 +724,12 @@
             //acceso al servicio bd
             let database = firebase.database();
 
-            //Mi nodo de Actividades
+            //Mi nodo de Unidades
             let ref = database.ref('Unidad');
             ref.on('value', function (ss) {
                 //let nombre = ss.val();
                 let tareas = ss.val();                
-                //tengo las keys de las ACTIVIDADES en un array
+                //tengo las keys de las Unidades en un array
                 let keys = Object.keys(tareas);      
                 for (let i = 0; i < keys.length; i++){
                     let k = keys [i];                    
@@ -716,7 +742,7 @@
         }        
 
 
-/*
+        /*
         var updateTitleActividad = function(tareaId, title){
 
             var tareaRef = firebase.database().ref('/Actividad/' + tareaId);
@@ -724,8 +750,36 @@
                 Titulo: title
                 //log.console(title);
             });
-        }         
+        }      
+
 */
+
+        //LECTURAS
+
+        var getLecturas = function () {
+
+            var defered = $q.defer();
+            var promise = defered.promise;
+            let lecturas = [];            
+            //acceso al servicio bd
+            let database = firebase.database();
+
+            //Mi nodo de Lecturas
+            let ref = database.ref('Lectura');
+            ref.on('value', function (ss) {
+                //let nombre = ss.val();
+                let nombres = ss.val();                
+                //tengo las keys de las Lecturas en un array
+                let keys = Object.keys(nombres);      
+                for (let i = 0; i < keys.length; i++){
+                    let k = keys [i];                    
+                    lecturas.push({"data": nombres[k], "uid": k});
+                }                
+                defered.resolve(lecturas);
+            })
+
+            return promise;
+        } 
 
 
         var updateCoins = function(userId, coins){
@@ -754,14 +808,15 @@
             getUsers: getUsers,
             getCurrentUser: getCurrentUser,
 
-           getCurrentActivity:getCurrentActivity,
+            getCurrentUnidad:getCurrentUnidad,
             getUnidades: getUnidades,
 
+            getLecturas: getLecturas,
 
             updateCoins:updateCoins,
             updateMedalla: updateMedalla,
             updateVida: updateVida,
-           // updateTitleActividad: updateTitleActividad
+            // updateTitleActividad: updateTitleActividad
         }
     }
 } ());
@@ -1516,11 +1571,25 @@
     // .service('RestService', RestService);
 
         .controller('AppCtrl', function($scope) {
-        $scope.users = ['Fabio', 'Leonardo', 'Thomas', 'Gabriele', 'Fabrizio', 'John', 'Luis', 'Kate', 'Max'];
+        $scope.users = ['Teoria de la Autodeterminación', 'Leonardo', 'Thomas', 'Gabriele', 'Fabrizio', 'John', 'Luis', 'Kate', 'Max'];
     });
 
 
 })();
+/*
+(function () {
+    'use strict';
+    angular
+        .module('AdsbApp')
+        .controller('AppCtrl', ['$scope', '$window', function ($scope, $window) {
+            $scope.redirectToLecture = function () {
+                $window.open('https://www.google.com', '_blank');
+            };
+        }]);
+
+
+})();
+*/
 
 
 

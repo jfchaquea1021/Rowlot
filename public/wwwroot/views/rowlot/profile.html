@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-12">
-                    <h4 class="page-title"> Ranking</h4> </div>
+                    <h4 class="page-title"> Perfil </h4> </div>
 
                 <!-- /.col-lg-12 -->
             </div>
@@ -15,22 +15,44 @@
            <!-- /.row -->
             <!-- .row -->
             <div class="row">
-                <div class="col-md-4 col-xs-12">
-                    <div class="white-box">
+                <div class="col-12">
+                   
+                    <div class="profile-box">
+                         <div class="profile">
                         <div class="user-bg">
                             <!--<img width="100%" alt="user" src="../plugins/images/large/img1.jpg">-->
                             <div class="overlay-box">
                                 <div class="user-content">
                                     <a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
-                                    <h4 class="text-white" style= "color:#fff">
+                                    <h4 class="text-white">
                                         <b>
                                     {{profile.Nombre}} {{profile.Apellido}}</b></h4>
                                     <h5 class="text-white">  {{profile.email}}</h5> </div>
                             </div>
                         </div>
+                         </br>
+                        </div>
+                    </div>
+                   <div class="profile-boxdown">
+                         <div class="profile">
+                        <div class="user-btm-box">
+                            <div class="col-md-4 col-sm-4 text-center">
+
+                                 <h4>Monedas Máximas</h4>
+                                <h1> <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{profile.Moneda}} </h1> </div>
+                            <div class="col-md-4 col-sm-4 text-center">
+
+                                <h4>Vidas Máximas</h4> 
+                                <h1 > <img src="plugins/images/vida.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{profile.Vida}} </h1> </div>
+                            <div class="col-md-4 col-sm-4 text-center">
+
+                                  <h4>Medallas Máximas</h4> 
+                                <h1 > <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{profile.Medalla}} </h1> </div>
+                        </div>
+                         </div>
                     </div>
                 </div>
-                <div class="col-md-8 col-xs-12">
+                <!--div class="col-12">
                     <div class="white-box">
                         
                         <ul class="nav nav-tabs tabs customtab">
@@ -38,58 +60,63 @@
                             <li class="active tab">
                                 <a href="#notas" data-toggle="tab"> <span class="visible-xs"><i class="fa fa-home"></i></span> <span class="hidden-xs">Notas</span> </a>
                             </li>
+        
 
                         </ul>
                         
                         <div class="tab-content">
                             <div class="tab-pane active" id="notas">
 
-                    
+         
 
                                     <div class="table-responsive">
                                         <table class="table  primary-table">
                                             <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Actividad</th>
-                                                <th>Portcentaje</th>
-                                                <th>Nota</th>
+                                                <th>Estudiante</th>
+                                                <th>Act 1 <br>  <span class="text-muted">20%</span></th>
+                                                <th>Act 2  <br><span class="text-muted">30%</span></th>
+                                                  <th>Act 3  <br><span class="text-muted">25%</span></th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Resumen lectura</td>
-                                                <td>20%</td>
+                                                <td>Daniela Medina</td>
+                                                <td>2</td>
+                                                <td>3.5</td>
+                                                <td>3.5</td>
+                                            </tr>
+                                             <tr>
+                                                <td>1</td>
+                                                <td>Daniela Gonzales</td>
+                                                <td>4</td>
+                                                <td>2.5</td>
                                                 <td>3.5</td>
                                             </tr>
                                             <tr>
-                                                <td>2</td>
-                                               <td>código</td>
-                                                <td>20%</td>
-                                                <td>3.5</td>
+                                                <td>1</td>
+                                                <td>Sebastian Medina</td>
+                                                <td>4</td>
+                                                <td>2.5</td>
+                                                <td>3.8</td>
                                             </tr>
-                                                                                        </tbody>
+                                            </tbody>
                                         </table>
                                     </div>
-                                </div>
-                         
+                              
+                            </div>
 
                             
-                       
-                        </div>
+                        </div-->
                     </div>
                 </div>
             </div>
         
 
 
-</div></div></div>
-
-</div>
-
-
-
+</div></div>
 
 
 
@@ -118,12 +145,7 @@
                             <!--<img width="100%" alt="user" src="../plugins/images/large/img1.jpg">-->
                             <div class="overlay-box">
                                 <div class="user-content">
-                                   <div class="imagenPerfil">
-                                    <img src="../plugins/images/users/genu.jpg" class="thumb-lg img-circle contenidoImagen" alt="img">
-                                    <div class="editarImagen">
-                                    <button>Editar</button>
-                                    </div>
-                                    </div>
+                                    <a href="javascript:void(0)"><img src="../plugins/images/users/genu.jpg" class="thumb-lg img-circle" alt="img"></a>
                                     <h4 class="text-white">
                                         <b>
                                     {{profile.Nombre}} {{profile.Apellido}}</b></h4>
@@ -131,25 +153,28 @@
                             </div>
                         </div>
                          </br>
-                        
+                        </div>
+                    </div>
+                   <div class="profile-boxdown">
+                         <div class="profile">
                         <div class="user-btm-box">
                             <div class="col-md-4 col-sm-4 text-center">
 
-                                 <h4 class="text-white">Monedas</h4>
-                                <h1 class="text-white">{{profile.Moneda}} </h1> </div>
+                                 <h4>Monedas</h4>
+                                <h1> <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{profile.Moneda}} </h1> </div>
                             <div class="col-md-4 col-sm-4 text-center">
 
-                                <h4 class="text-white">Medallas</h4> 
-                                <h1 class="text-white">{{profile.Medalla}} </h1> </div>
+                                <h4>Vidas</h4> 
+                                <h1 > <img src="plugins/images/vida.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{profile.Vida}} </h1> </div>
                             <div class="col-md-4 col-sm-4 text-center">
 
-                                  <h4 class="text-white">Vidas</h4> 
-                                <h1 class="text-white">{{profile.Vida}} </h1> </div>
+                                  <h4>Medallas</h4> 
+                                <h1 > <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{profile.Medalla}} </h1> </div>
                         </div>
                          </div>
                     </div>
                 </div>
-                <div class="col-12">
+                <!--div class="col-12">
                     <div class="white-box">
                         
                         <ul class="nav nav-tabs tabs customtab">
@@ -204,7 +229,7 @@
                             
                         </div>
                     </div>
-                </div>
+                </div-->
             </div>
         
 

@@ -1,0 +1,408 @@
+
+ <div ng-show="showStudent">
+
+  <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-12">
+                    <h4 class="page-title"> Lista de Tareas</h4> </div>
+                
+                 
+            </div>
+            
+            
+            
+            
+               <div class="col-12">
+                  
+                         <div class="panel">
+                             
+                             <div class="p-20">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                       
+                                         <h3 class="m-t-0 font-medium">UNIDAD 1</h3>
+                                    </div>
+                              
+                                </div>
+                            </div>
+                            
+                
+                        <div class="table-responsive">
+                            <table class="table table-hover manage-u-table">
+                                <thead>
+                                    <tr>
+                                        <th width="70" class="text-center">#</th>
+                                        <th>NOMBRE</th>
+                                        <th>PORCENTAJE</th>
+                                         <th>CALIFICACIÓN</th>
+                                         <th>ENTREGADO</th>
+                                 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td class="text-center">1</td>
+                                        <td><a ui-sref="auth.task"><span class="font-medium">Resumen hci</span>
+                                            <br/><span class="text-muted">Entrega: 30 enero 2017</span></a></td>
+                                        <td>
+                                            <span class="text-muted"> 20% </span></td>
+                                       
+                                          <td>
+                                            <span class="text-muted"> 5 </span></td>
+                                       
+                                  <td>
+                                            <span class="text-muted"> SI </span></td>
+                                     
+                                            
+                                            
+                                    </tr>
+                                    
+                                  
+                       
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            </div>
+      </div>
+
+
+
+</div>
+     </div>
+
+
+
+
+  <div ng-show="showTeacher">
+
+
+       <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-12">
+                    <h4 class="page-title"> Lista de Tareas</h4> </div>
+                
+   
+                
+                                        <a href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#miUnidad">Añadir unidad</a>        
+                            
+                            
+           
+                          <div class="modal fade" id="miUnidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">Añadir tarea</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <form>
+                                      <div class="form-group">
+                                        <label for="exampleInputEmail1">  Titulo de la unidad</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de la unidad">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleInputEmail2">Descripción</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
+                                      </div>
+                                        
+    
+                                    </form>
+                                          
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Aceptar</button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                
+                
+            </div>
+
+
+              <div class="col-12">
+                  
+                         <div class="panel">
+                             
+                             <div class="p-20">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                       
+                                         <h3 class="m-t-0 font-medium">UNIDAD 1</h3>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#myModal">Añadir tarea</a>        
+                                    </div>
+                                </div>
+                            </div>
+                            
+           
+                          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">Añadir tarea</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <form>
+                                      <div class="form-group">
+                                        <label for="exampleInputEmail1">  Titulo de la tarea</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de la unidad">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleInputEmail2">Descripción</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
+                                      </div>
+                                        
+                                           <div class="form-group">
+                                        <label for="exampleInputEmail2">Fecha</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
+                                      </div>
+                                        
+                                           <div class="form-group">
+                                        <label for="exampleInputEmail2">porcentaje</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
+                                      </div>
+                                    </form>
+                                          
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Aceptar</button>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover manage-u-table">
+                                <thead>
+                                    <tr>
+                                        <th width="70" class="text-center">#</th>
+                                        <th>NOMBRE</th>
+                                        <th>PORCENTAJE</th>
+                                 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td class="text-center">1</td>
+                                        <td><a ui-sref="auth.task"><span class="font-medium">Resumen hci</span>
+                                            <br/><span class="text-muted">Entrega: 30 enero 2017</span></a></td>
+                                        <td>
+                                            <span class="text-muted"> 20% </span></td>
+                                       
+                                       
+                                
+                                       <td>
+                                          <a ui-sref="auth.rowlot-task"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span></a>
+                                        </td>
+                                            
+                                            
+                                    </tr>
+                                    
+                                           <tr>
+                                        
+                                        <td class="text-center">2</td>
+                                        <td><a ui-sref="auth.task"><span class="font-medium">Entrega pruebas de usuario</span>
+                                            <br/><span class="text-muted">Entrega: 30 enero 2017</span></a></td>
+                                        <td><span class="text-muted"> 20% </span></td>
+                                       
+                                       
+                                
+                                        <td >
+                                         <a ui-sref="auth.task"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span></a>
+                                        </td>
+                                            
+                                    </tr>
+                       
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                 
+                  
+                  
+                                <div class="panel">
+                             
+                             <div class="p-20">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                       
+                                         <h3 class="m-t-0 font-medium">UNIDAD 2</h3>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <a href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#myModal">Añadir tarea</a>        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                  
+                          <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title">Añadir tarea</h4>
+                                  </div>
+                                  <div class="modal-body">
+                                    <form>
+                                      <div class="form-group">
+                                        <label for="exampleInputEmail1">  Titulo de la tarea</label>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de la tarea">
+                                      </div>
+                                      <div class="form-group">
+                                        <label for="exampleInputEmail2">Descripción</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la tarea">
+                                      </div>
+                                        
+                                           <div class="form-group">
+                                        <label for="exampleInputEmail2">Fecha</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="dd/mm/yy">
+                                      
+                                        <label for="exampleInputEmail2">porcentaje</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="porcentaje de la tarea">
+                                      </div>
+                                    </form>
+                                          
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Aceptar</button>
+                                  </div>
+                                </div><
+                              </div>
+                          </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover manage-u-table">
+                                <thead>
+                                    <tr>
+                                        <th width="70" class="text-center">#</th>
+                                        <th>NOMBRE</th>
+                                        <th>PORCENTAJE</th>
+                                 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td class="text-center">1</td>
+                                        <td><a ui-sref="auth.task"><span class="font-medium">Resumen hci</span>
+                                            <br/><span class="text-muted">Entrega: 30 enero 2017</span></a></td>
+                                        <td>
+                                            <span class="text-muted"> 20% </span></td>
+                                       
+                                       
+                                
+                                       <td>
+                                          <a href="#"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span></a>
+                                        </td>
+                                            
+                                            
+                                    </tr>
+                                    
+                                           <tr>
+                                        
+                                        <td class="text-center">2</td>
+                                        <td><a ui-sref="auth.task"><span class="font-medium">Entrega pruebas de usuario</span>
+                                            <br/><span class="text-muted">Entrega: 30 enero 2017</span></a></td>
+                                        <td><span class="text-muted"> 20% </span></td>
+                                       
+                                       
+                                
+                                        <td >
+                                          <a href="#"><span class="circle circle-sm bg-danger di"><i class="ti-trash"></i></span></a>
+                                        </td>
+                                            
+                                    </tr>
+                       
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                     
+                    </div>
+     
+            
+            
+            
+        
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+                   
+                       
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+<!-- acordeon -->
+	
+
+
+
+
+
+
+
+

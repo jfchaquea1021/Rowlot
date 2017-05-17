@@ -250,7 +250,7 @@ hr {
   margin-top: 10px !important;
 }
 .m-t-15 {
-  margin-top: 15px !important;
+  margin-top: 0px;
 }
 .m-t-20 {
   margin-top: 20px !important;
@@ -954,7 +954,8 @@ pre {
   background: rgba(0, 0, 0, 0.1);
 }
 .navbar-top-links > li > a:focus {
-  background: #ffffff;
+     background:none;
+
 }
 .nav .open > a,
 .nav .open > a:focus,
@@ -1116,8 +1117,9 @@ pre {
 }
 .btn-info,
 .btn-info.disabled {
-  background: #2cabe3;
-  border: 1px solid #2cabe3;
+  background: #4dbee0;
+  border: 1px solid #4dbee0;
+    border-radius: 15px;
 }
 .btn-info:hover,
 .btn-info.disabled:hover,
@@ -1133,6 +1135,7 @@ pre {
 .btn-warning.disabled {
   background: #ffc36d;
   border: 1px solid #ffc36d;
+  border-radius: 15px;
 }
 .btn-warning:hover,
 .btn-warning.disabled:hover,
@@ -16376,10 +16379,19 @@ ul.pro-amenities li span i {
   }
 }
 /*Phone*/
+
 @media (max-width: 767px) {
   .navbar-top-links {
     float: left;
   }
+    .dark-logo{
+   width: 0px;
+        height: 0px;
+}
+    .dropdown li{
+        width:0px;
+        height: 0px;
+    }
   .navbar-top-links .profile-pic img {
     margin-right: 0px;
   }
@@ -16396,7 +16408,7 @@ ul.pro-amenities li span i {
   .show-sidebar .sidebar {
     width: 280px;
     top: 0px;
-       background: #ffff8d;
+       background:none;
   }
   .show-sidebar .sidebar .hide-menu {
     display: inline;
@@ -16423,7 +16435,7 @@ ul.pro-amenities li span i {
   }
   #page-wrapper {
     margin: 0px;
-       background: #ffff8d;
+      
   }
   .row-in-br {
     border-right: 0px;
