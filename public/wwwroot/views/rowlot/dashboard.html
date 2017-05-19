@@ -1,6 +1,5 @@
-
 <div ng-show="showStudent">
-<div id="wrapper">
+    <div id="wrapper">
         <!-- Page Content -->
         <div id="page-wrapper">
             <div class="container-fluid">
@@ -8,268 +7,170 @@
                     <div class="col-12">
                         <h4 class="page-title"> Premiaciones</h4> </div>
                 </div>
-
-
-
                 <div class="row">
-      
-                        <div class="col-lg-4 col-sm-4 col-xs-12">
-                            <div class="white-box-monedas analytics-info">
-                            
-                                    <h3 class="box-title" style= "text-align:center; color: #525252;"><b>Monedas</b></h3>
-                                    <h1  class="text-center"> <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;"> 1000</h1>
-
-                                    
-                             
-                            </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <div class="white-box-monedas analytics-info">
+                            <h3 class="box-title" style="text-align:center; color: #525252;"><b>Monedas</b></h3>
+                            <h1 class="text-center"> <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{countMoneyUser}}</h1>
                         </div>
-                 
-
-                        <div class="col-lg-4 col-sm-4 col-xs-12">
-                            <div class="white-box-monedas analytics-info">
-                              
-                                    <h3 class="box-title" style= "text-align:center; color: #525252;">
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <div class="white-box-monedas analytics-info">
+                            <h3 class="box-title" style="text-align:center; color: #525252;">
                                        <b>Vidas</b></h3>
-                       
-                                    <h1 class="text-center"> <img src="plugins/images/vida.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;"> 8</h1>
-                               </div>
+                            <h1 class="text-center"> <img src="plugins/images/vida.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;"> 8</h1>
                         </div>
-
-         
-
-                        <div class="col-lg-4 col-sm-4 col-xs-12">
-                            <div class="white-box-monedas analytics-info">
-                               
-                                    <h3 class="box-title"  style= "text-align:center; color: #525252;"><b>Medallas</b></h3>
-                                  <h1  class="text-center"> <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">8</h1>
-                                 </div>
-                        </div></div>
-
-
-
-   
-                            <section class="col-12" >
-                                <div class="sttabs tabs-style-iconbox">
-                                    <nav>
-                                        <ul>
-                                            <li><a href="#section-iconbox-1" ><img src="plugins/images/monedab.png" alt="Smiley face" height="22" width="18" style="margin-right: 10px;"><span>Monedas</span></a></li>
-                                            <li><a href="#section-iconbox-2"><img src="plugins/images/vidab.png" alt="Smiley face" height="22" width="22" style="margin-right: 10px;"><span>Vidas</span></a></li>
-                                            <li><a href="#section-iconbox-3"><img src="plugins/images/medallab.png" alt="Smiley face" height="22" width="22" style="margin-right: 10px;"><span>Medallas</span></a></li>
-                                      
-                                        </ul>
-                                    </nav>
-                                    <div class="content-wrap text-center" style="    padding: 0px;
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <div class="white-box-monedas analytics-info">
+                            <h3 class="box-title" style="text-align:center; color: #525252;"><b>Medallas</b></h3>
+                            <h1 class="text-center"> <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">8</h1>
+                        </div>
+                    </div>
+                </div>
+                <section class="col-12">
+                    <div class="sttabs tabs-style-iconbox">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#section-iconbox-1"><img src="plugins/images/monedab.png" alt="Smiley face" height="22" width="18" style="margin-right: 10px;"><span>Monedas</span></a>
+                                </li>
+                                <li>
+                                    <a href="#section-iconbox-2"><img src="plugins/images/vidab.png" alt="Smiley face" height="22" width="22" style="margin-right: 10px;"><span>Vidas</span></a>
+                                </li>
+                                <li>
+                                    <a href="#section-iconbox-3"><img src="plugins/images/medallab.png" alt="Smiley face" height="22" width="22" style="margin-right: 10px;"><span>Medallas</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="content-wrap text-center" style="    padding: 0px;
     min-height: 0px;">
-                                        <!--monedas-->
-                                        <section id="#section-iconbox-1" style="    padding: 0px;
+                            <!--monedas-->
+                            <section id="#section-iconbox-1" style="    padding: 0px;
     min-height: 0px;">
- 
-                <div class="col-md-12">
-                    <div class="white-box">
-                        <h3 class="box-title"> Ranking de monedas</h3>
-                        <div class="scrollable">
-                            <div class="table-responsive">
-                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                                    <thead>
-                                        <tr>
-                                            <th>Rank</th>
-                                            <th>Nombre</th>
-                                            <th class="text-center">Monedas</th> 
-                                            <th style="width: 40%; text-align:center;">Promedio</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody ng-init="database()">
-                                        <tr ng-repeat="(index,user) in users">
-                                            <td>{{index+1}}</td>
-                                            <td class="text-left">
-                                                <a href="contact-detail.html">
-                                                    <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" />   
-                                                    {{user.data.Nombre}} {{user.data.Apellido}}
-                                                </a>
-                                            </td>
-
-                                            <td class="text-center">{{user.data.Moneda}}</td>                               
-                                            <td>    
-
-                                                <p> <span style= "margin-right: 10px" class="pull-left text-muted"><b>60%</b>   </span> </p>
-
-                                                <div class="progress progress-striped active">
-                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; background: #ffc36d;border-radius: 6px; "> <span class="sr-only">60% Complete (success)</span> </div>
-                                                </div>
-                                               
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                <div class="col-md-12">
+                                    <div class="white-box">
+                                        <h3 class="box-title"> Ranking de monedas</h3>
+                                        <div class="scrollable">
+                                            <div class="table-responsive">
+                                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Rank</th>
+                                                            <th>Nombre</th>
+                                                            <th class="text-center">Monedas</th>
+                                                            <th style="width: 40%; text-align:center;">Promedio</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody ng-init="database()">
+                                                        <tr ng-repeat="(index,user) in users">
+                                                            <td>{{index+1}}</td>
+                                                            <td class="text-left">
+                                                                <a href="contact-detail.html">
+                                                                    <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" /> {{user.data.Nombre}} {{user.data.Apellido}}
+                                                                </a>
+                                                            </td>
+                                                            <td class="text-center">{{user.data.Moneda}}</td>
+                                                            <td>
+                                                                <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>{{(user.data.Moneda*100)/misc.maxMoney | number : 2}}%</b>   </span> </p>
+                                                                <div class="progress progress-striped active">
+                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="(user.data.Moneda*100)/misc.maxMoney" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': ((user.data.Moneda*100)/misc.maxMoney)+'%', 'background': '#ffc36d','border-radius': '6px'}"> <span class="sr-only">{{(user.data.Moneda*100)/misc.maxMoney | number : 2}}% Complete (success)</span> </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="#section-iconbox-2" style="    padding: 0px;
+    min-height: 0px;">
+                                <div class="col-md-12">
+                                    <div class="white-box">
+                                        <h3 class="box-title"> Ranking de las vidas</h3>
+                                        <div class="scrollable">
+                                            <div class="table-responsive">
+                                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Rank</th>
+                                                            <th>Nombre</th>
+                                                            <th class="text-center">Vidas</th>
+                                                            <th style="width: 40%; text-align:center;">Promedio</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody ng-init="database()">
+                                                        <tr ng-repeat="(index,user) in users">
+                                                            <td>{{index+1}}</td>
+                                                            <td class="text-left">
+                                                                <a href="contact-detail.html">
+                                                                    <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" /> {{user.data.Nombre}} {{user.data.Apellido}}
+                                                                </a>
+                                                            </td>
+                                                            <td class="text-center">{{user.data.Vida}}</td>
+                                                            <td>
+                                                                <div>
+                                                                    <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>{{(user.data.Vida*100)/8}}%</b>   </span> </p>
+                                                                    <div class="progress progress-striped active">
+                                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': ((user.data.Vida*100)/8)+'%', 'background': '#ffc36d','border-radius': '6px'}"> <span class="sr-only">{{(user.data.Vida*100)/8}}% Complete (success)</span> </div>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="#section-iconbox-3" style="padding: 0px;
+    min-height: 0px;">
+                                <div class="col-md-12">
+                                    <div class="white-box">
+                                        <h3 class="box-title"> Ranking de Medallas</h3>
+                                        <div class="scrollable">
+                                            <div class="table-responsive">
+                                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Rank</th>
+                                                            <th>Nombre</th>
+                                                            <th class="text-center">Medallas</th>
+                                                            <th style="width: 40%; text-align:center;">Promedio</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody ng-init="database()">
+                                                        <tr ng-repeat="(index,user) in users">
+                                                            <td>{{index+1}}</td>
+                                                            <td class="text-left">
+                                                                <a href="contact-detail.html">
+                                                                    <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" /> {{user.data.Nombre}} {{user.data.Apellido}}
+                                                                </a>
+                                                            </td>
+                                                            <td class="text-center">{{user.data.Medalla}}</td>
+                                                            <td>
+                                                                <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>{{(user.data.Medalla*100)/8}}%</b>   </span> </p>
+                                                                <div class="progress progress-striped active">
+                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': ((user.data.Medalla*100)/8)+'%', 'background': '#ffc36d','border-radius': '6px'}"> <span class="sr-only">{{(user.data.Medalla*100)/8}}% Complete (success)</span> </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
                         </div>
                     </div>
-                </div>
-         
-
-                                                   
-                                            
-                                            
-                                            
-                                            
-                                        </section>
-                                        
-                                
-                                             <section id="#section-iconbox-2" style="    padding: 0px;
-    min-height: 0px;">                                    
-                                                 <div class="col-md-12">
-                    <div class="white-box">
-                        <h3 class="box-title"> Ranking de las vidas</h3>
-                        <div class="scrollable">
-                            <div class="table-responsive">
-                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                                    <thead>
-                                        <tr>
-                                            <th>Rank</th>
-                                            <th>Nombre</th>
-                                            <th class="text-center">Vidas</th> 
-                                            <th style="width: 40%; text-align:center;">Promedio</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody ng-init="database()">
-                                        <tr ng-repeat="(index,user) in users">
-                                            <td>{{index+1}}</td>
-                                           <td class="text-left">
-                                                <a href="contact-detail.html">
-                                                    <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" />   
-                                                    {{user.data.Nombre}} {{user.data.Apellido}}
-                                                </a>
-                                            </td>
-
-                                            <td class="text-center">{{user.data.Vida}}</td>                               
-                                            <td>    <div>
-
-                                                <p> <span style= "margin-right: 10px" class="pull-left text-muted"><b>60%</b>   </span> </p>
-
-                                                <div class="progress progress-striped active">
-                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; background: #ffc36d;border-radius: 6px; "> <span class="sr-only">60% Complete (success)</span> </div>
-                                                </div>
-                                                </div>
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                    
-                                        
-         </section>  
-                                         
-                                        
-                                        
-    <section id="#section-iconbox-3" style="padding: 0px;
-    min-height: 0px;">                                    
-        
-                <div class="col-md-12">
-                    <div class="white-box">
-                        <h3 class="box-title"> Ranking de Medallas</h3>
-                        <div class="scrollable">
-                            <div class="table-responsive">
-                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                                    <thead>
-                                        <tr>
-                                            <th>Rank</th>
-                                            <th>Nombre</th>
-                                            <th class="text-center">Medallas</th> 
-                                            <th style="width: 40%; text-align:center;">Promedio</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody ng-init="database()">
-                                        <tr ng-repeat="(index,user) in users">
-                                            <td>{{index+1}}</td>
-                                            <td class="text-left">
-                                                <a href="contact-detail.html">
-                                                    <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" />   
-                                                    {{user.data.Nombre}} {{user.data.Apellido}}
-                                                </a>
-                                            </td>
-
-                                            <td class="text-center">{{user.data.Medalla}}</td>                               
-                                            <td>  
-                
-
-                                                <p> <span style= "margin-right: 10px" class="pull-left text-muted"><b>60%</b>   </span> </p>
-
-                                                <div class="progress progress-striped active">
-                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; background: #ffc36d;border-radius: 6px; "> <span class="sr-only">60% Complete (success)</span> </div>
-                                                </div>
-                                                
-                                            </td>
-
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-          
-
-         
-                                 
-                                        
-         </section>     
-                                        
-                                        
-                                        
-                                        
-     <!--/.cierra vista estudiantes
-
-<!--vista estudiante contenido  -->   
-
-        
-        
-
+            </div>
+        </div>
     </div>
 </div>
-</div>
-</div>
-
-
- </div>
- </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div ng-show="showTeacher">
     <div id="wrapper">
         <!-- Page Content -->
@@ -279,237 +180,199 @@
                     <div class="col-12">
                         <h4 class="page-title"> Premiaciones</h4> </div>
                 </div>
-
-
-
                 <div class="row">
-      
-                        <div class="col-lg-4 col-sm-4 col-xs-12">
-                            <div class="white-box-monedas analytics-info">
-                                <a href="#monedasT" data-toggle="tab">
-                                    <h3 class="box-title" style= "text-align:center; color: #525252;"><b>Monedas Máximas</b></h3>
-                                    <h1  class="text-center"> <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;"> 1000</h1>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <div class="white-box-monedas analytics-info">
+                        <h3 class="box-title" style="text-align:center; color: #525252;"><b>Monedas Máximas</b></h3>
+                            <a  data-toggle="tab" ng-if="showMoney">
+                                <h1 class="text-center" ng-click="showEditMoney();" > <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{misc.maxMoney}}</h1>
 
-                                    
-                                </a>
+                            </a>
+                            <div class="input-group" ng-if="!showMoney">
+                                <input  ng-model="misc.newMaxMoney" type="number" class="form-control"/>
+                                <span class="input-group-btn">
+                                  <button class="btn btn-success"  ng-click="setMaxMoney();"><i class="glyphicon glyphicon-ok"></i></button>
+                                  <button class="btn btn-danger"  ng-click="showEditMoney();"><i class="glyphicon glyphicon-remove"></i></button>
+                                </span>
+
                             </div>
-                        </div>
-                 
 
-                        <div class="col-lg-4 col-sm-4 col-xs-12">
-                            <div class="white-box-monedas analytics-info">
-                                <a href="#vidasT" data-toggle="tab">
-                                    <h3 class="box-title" style= "text-align:center; color: #525252;">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <div class="white-box-monedas analytics-info">
+                            <a href="#vidasT" data-toggle="tab">
+                                <h3 class="box-title" style="text-align:center; color: #525252;">
                                        <b>Vidas Máximas</b></h3>
-                       
-                                    <h1 class="text-center"> <img src="plugins/images/vida.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;"> 8</h1>
-                                </a></div>
+                                <h1 class="text-center"> <img src="plugins/images/vida.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;"> 8</h1>
+                            </a>
                         </div>
-
-         
-
-                        <div class="col-lg-4 col-sm-4 col-xs-12">
-                            <div class="white-box-monedas analytics-info">
-                                <a href="#medallasT" data-toggle="tab">
-                                    <h3 class="box-title"  style= "text-align:center; color: #525252;"><b>Medallas Máximas</b></h3>
-                                  <h1  class="text-center"> <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">8</h1>
-                                </a>  </div>
-                        </div></div>
-
-
-
-   
-                            <section class="col-12" >
-                                <div class="sttabs tabs-style-iconbox">
-                                    <nav>
-                                        <ul>
-                                              <li><a href="#section-iconbox-1" ><img src="plugins/images/monedab.png" alt="Smiley face" height="22" width="18" style="margin-right: 10px;"><span>Monedas</span></a></li>
-                                            <li><a href="#section-iconbox-2"><img src="plugins/images/vidab.png" alt="Smiley face" height="22" width="22" style="margin-right: 10px;"><span>Vidas</span></a></li>
-                                            <li><a href="#section-iconbox-3"><img src="plugins/images/medallab.png" alt="Smiley face" height="22" width="22" style="margin-right: 10px;"><span>Medallas</span></a></li>
-                                      
-                                        </ul>
-                                    </nav>
-                                    <div class="content-wrap text-center" style="    padding: 0px;
+                    </div>
+                    <div class="col-lg-4 col-sm-4 col-xs-12">
+                        <div class="white-box-monedas analytics-info">
+                            <a href="#medallasT" data-toggle="tab">
+                                <h3 class="box-title" style="text-align:center; color: #525252;"><b>Medallas Máximas</b></h3>
+                                <h1 class="text-center"> <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">8</h1>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <section class="col-12">
+                    <div class="sttabs tabs-style-iconbox">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#section-iconbox-1"><img src="plugins/images/monedab.png" alt="Smiley face" height="22" width="18" style="margin-right: 10px;"><span>Monedas</span></a>
+                                </li>
+                                <li>
+                                    <a href="#section-iconbox-2"><img src="plugins/images/vidab.png" alt="Smiley face" height="22" width="22" style="margin-right: 10px;"><span>Vidas</span></a>
+                                </li>
+                                <li>
+                                    <a href="#section-iconbox-3"><img src="plugins/images/medallab.png" alt="Smiley face" height="22" width="22" style="margin-right: 10px;"><span>Medallas</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="content-wrap text-center" style="    padding: 0px;
     min-height: 0px;">
-                                        <!--monedas-->
-                                        <section id="#section-iconbox-1" style="    padding: 0px;
+                            <!--monedas-->
+                            <section id="#section-iconbox-1" style="    padding: 0px;
     min-height: 0px;">
-                           
-                        <div class="col-md-12">
-                            <div class="white-box">
-                                <h3 class="box-title">MONEDAS</h3>
-                                <div class="scrollable">
-                                    <div class="table-responsive">
-                                        <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                                            <thead>
-                                                <tr>
-                                                    <th>Rank</th>
-                                                    <th>Nombre</th>
-                                                    <th  class="text-center">Monedas</th> 
-   <th class="text-center">Premiar</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-init="database()">
-                                                <tr ng-repeat="(index,user) in users">
-                                                    <td>{{index+1}}</td>
-                                                    <td style="text-align:left;">
-                                                      
-                                                            <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" />   
-                                                            {{user.data.Nombre}} {{user.data.Apellido}}
-                                                        
-                                                    </td>
-                                                    <td class="text-center" >{{user.data.Moneda}}</td>                      <td>
-                                                    <div>
-                                                        
-                                                    
-                                                        
-                                                        <button class="btn btn-info"ng-click="substractCoins(user.uid, user.data.Moneda)"> <b>-</b></button>
-
-                                                        <input id="{{user.uid}}" min="0" type="number" ng-model='coins' style="width: 50px;" />
-
-                                                        <!--button type= "button" style="background:url(plugins/images/mas.png); width:30px; height:31px; vertical-align: middle; border: 0px" ng-click="addCoins(user.uid, user.data.Moneda)"></button-->
-                                                        
-                                                           <button class="btn btn-warning" ng-click="addCoins(user.uid, user.data.Moneda)"> <b>+</b></button>
-                                                    </div>
-                                                    </td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                <div class="col-md-12">
+                                    <div class="white-box">
+                                        <h3 class="box-title">MONEDAS</h3>
+                                        <div class="scrollable">
+                                            <div class="table-responsive">
+                                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Rank</th>
+                                                            <th>Nombre</th>
+                                                            <th class="text-center">Monedas</th>
+                                                            <th class="text-center">Premiar</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody ng-init="database()">
+                                                        <tr ng-repeat="(index,user) in users">
+                                                            <td>{{index+1}}</td>
+                                                            <td style="text-align:left;">
+                                                                <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" /> {{user.data.Nombre}} {{user.data.Apellido}}
+                                                            </td>
+                                                            <td class="text-center">{{user.data.Moneda}}</td>
+                                                            <td>
+                                                                <div>
+                                                                    <button class="btn btn-info" ng-click="substractCoins(user.uid, user.data.Moneda)"> <b>-</b></button>
+                                                                    <input id="{{user.uid}}" min="0" type="number" ng-model='coins' style="width: 50px;" />
+                                                                    <!--button type= "button" style="background:url(plugins/images/mas.png); width:30px; height:31px; vertical-align: middle; border: 0px" ng-click="addCoins(user.uid, user.data.Moneda)"></button-->
+                                                                    <button class="btn btn-warning" ng-click="addCoins(user.uid, user.data.Moneda)"> <b>+</b></button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>            
-                                        
-                                        </section>
-                                        
-                               <section id="#section-iconbox-2" style="    padding: 0px;
-    min-height: 0px;">
-                                        
-                                           
-                        <div class="col-md-12">
-                            <div class="white-box">
-                                <h3 class="box-title">VIDAS</h3>
-                                <div class="scrollable">
-                                    <div class="table-responsive">
-                                        <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                                            <thead>
-                                                <tr>
-                                                    <th>Rank</th>
-                                                    <th>Nombre</th>
-                                                    <th class="text-center">Vidas</th> 
-                                                    <th class="text-center">Premiar</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-init="database()">
-                                                <tr ng-repeat="(index,user) in users">
-                                                    <td>{{index+1}}</td>
-                                                    <td style="text-align:left;">
-                                                        <a href="contact-detail.html">
-                                                            <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" />   
-                                                            {{user.data.Nombre}} {{user.data.Apellido}}
-                                                        </a>
-                                                    </td>
-
-                                                    <td>{{user.data.Vida}}</td>                       
-                                                    <td>
-                                                        <p>
-                                                          
-                                                            <button class="btn btn-info" ng-click="substratVida(user.uid, user.data.Vida)"><b>-</b></button>
-                                                            
-                                                            <input id="life-{{user.uid}}" min="0" type="number" ng-model='vida' style="width: 50px;" />
-                                                            <button class="btn btn-warning"ng-click="addVida(user.uid, user.data.Vida)"><b>+</b> </button>
-                                                        </p>
-                                                    </td>
-
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                  
-                                        </section>
-               
-                                        <section id="#section-iconbox-3" style="    padding: 0px;
-    min-height: 0px;">     
-                        <div class="col-md-12">
-                            <div class="white-box">
-                                <h3 class="box-title">MEDALLAS</h3>
-                                <div class="scrollable">
-                                    <div class="table-responsive">
-                                        <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
-                                            <thead>
-                                                <tr>
-                                                    <th>Rank</th>
-                                                    <th>Nombre</th>
-                                                    <th class="text-center">Medallas</th>
-                                                       <th class="text-center">Premiar</th>
-
-                                                </tr>
-                                            </thead>
-                                            <tbody ng-init="database()">
-                                                <tr ng-repeat="(index,user) in users">
-                                                    <td>{{index+1}}</td>
-                                                    <td class="text-left">
-                                                        <a href="contact-detail.html">
-                                                            <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" />   
-                                                            {{user.data.Nombre}} {{user.data.Apellido}}
-
-                                                        </a>
-                                                    </td>
-
-                                                    <td>{{user.data.Medalla}}</td>
-
-                                                    <td>
-                                                        <div>
-                                                            <button class="btn btn-info" ng-click="substratMedalla(user.uid, user.data.Medalla)">-</button>
-                                                            <input id="metal-{{user.uid}}" min="0" type="number" ng-model='metal' style="width: 50px;" />
-                                                            <button class="btn btn-warning" ng-click="addMedalla(user.uid, user.data.Medalla)">+</button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                           
-                                        </section>
-                     </div>
-                                    <!-- /content -->
-                                </div>
-                                <!-- /tabs -->
                             </section>
+                            <section id="#section-iconbox-2" style="    padding: 0px;
+    min-height: 0px;">
+                                <div class="col-md-12">
+                                    <div class="white-box">
+                                        <h3 class="box-title">VIDAS</h3>
+                                        <div class="scrollable">
+                                            <div class="table-responsive">
+                                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Rank</th>
+                                                            <th>Nombre</th>
+                                                            <th class="text-center">Vidas</th>
+                                                            <th class="text-center">Premiar</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody ng-init="database()">
+                                                        <tr ng-repeat="(index,user) in users">
+                                                            <td>{{index+1}}</td>
+                                                            <td style="text-align:left;">
+                                                                <a href="contact-detail.html">
+                                                                    <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" /> {{user.data.Nombre}} {{user.data.Apellido}}
+                                                                </a>
+                                                            </td>
+                                                            <td>{{user.data.Vida}}</td>
+                                                            <td>
+                                                                <p>
+                                                                    <button class="btn btn-info" ng-click="substratVida(user.uid, user.data.Vida)"><b>-</b></button>
+                                                                    <input id="life-{{user.uid}}" min="0" type="number" ng-model='vida' style="width: 50px;" />
+                                                                    <button class="btn btn-warning" ng-click="addVida(user.uid, user.data.Vida)"><b>+</b> </button>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="#section-iconbox-3" style="    padding: 0px;
+    min-height: 0px;">
+                                <div class="col-md-12">
+                                    <div class="white-box">
+                                        <h3 class="box-title">MEDALLAS</h3>
+                                        <div class="scrollable">
+                                            <div class="table-responsive">
+                                                <table id="demo-foo-addrow" class="table m-t-30 table-hover contact-list" data-page-size="10">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Rank</th>
+                                                            <th>Nombre</th>
+                                                            <th class="text-center">Medallas</th>
+                                                            <th class="text-center">Premiar</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody ng-init="database()">
+                                                        <tr ng-repeat="(index,user) in users">
+                                                            <td>{{index+1}}</td>
+                                                            <td class="text-left">
+                                                                <a href="contact-detail.html">
+                                                                    <img src="../plugins/images/users/genu.jpg" alt="user" class="img-circle" /> {{user.data.Nombre}} {{user.data.Apellido}}
+                                                                </a>
+                                                            </td>
+                                                            <td>{{user.data.Medalla}}</td>
+                                                            <td>
+                                                                <div>
+                                                                    <button class="btn btn-info" ng-click="substratMedalla(user.uid, user.data.Medalla)">-</button>
+                                                                    <input id="metal-{{user.uid}}" min="0" type="number" ng-model='metal' style="width: 50px;" />
+                                                                    <button class="btn btn-warning" ng-click="addMedalla(user.uid, user.data.Medalla)">+</button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <!-- /content -->
+                    </div>
+                    <!-- /tabs -->
+                </section>
                 <!--vista profesor contenido  -->
-
-            </div> 
-        </div>     
+            </div>
+        </div>
     </div>
-    
-
     <!-- Custom Theme JavaScript -->
     <script src="js/cbpFWTabs.js"></script>
     <script type="text/javascript">
-        (function () {
-                [].slice.call(document.querySelectorAll('.sttabs')).forEach(function (el) {
-                new CBPFWTabs(el);
-            });
-        })();
+    (function() {
+        [].slice.call(document.querySelectorAll('.sttabs')).forEach(function(el) {
+            new CBPFWTabs(el);
+        });
+    })();
     </script>
     <script src="js/custom.min.js"></script>
     <!--Style Switcher -->
     <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-
-
 </div>
-
-
-
-
-
-

@@ -32,7 +32,7 @@
                                     <tr ng-repeat="(index,unidad) in unidades">
                                         <td class="text-center">{{index+1}}</td>
                                         <td>
-                                            <a ui-sref="auth.task"><span class="font-medium">{{unidad.data.Titulo}}</span>
+                                            <a ui-sref="auth.task({idTask:unidad.uid})"><span class="font-medium">{{unidad.data.Titulo}}</span>
                                                 <br/><span class="text-muted">Entrega: {{unidad.data.Fecha}}</span></a></td>
                                         <td>
                                             <span class="text-muted"> {{unidad.data.Porcentaje}} </span></td>
@@ -42,9 +42,6 @@
 
                                         <td>
                                             <span class="text-muted"> SI </span></td>
-
-
-
                                     </tr>
 
                                 </tbody>
@@ -55,10 +52,10 @@
                         </div>
                     </div>
                     <!-- /.col-lg-4 -->
-                 
+
                     <!-- /.col-lg-4 -->
                 </div>
-            
+
             </div>
         </div>
 
@@ -77,11 +74,11 @@
                 <div class="row bg-title">
                     <div class="col-12">
                         <h4 class="page-title"> Lista de Tareas</h4> </div>
-                    
-                     <a href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#miUnidad" style="background:#34aad0; border: 1px solid #edf1f5;"> <b>Añadir unidad </b></a>        
-                            
-                            
-           
+
+                     <a href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#miUnidad" style="background:#34aad0; border: 1px solid #edf1f5;"> <b>Añadir unidad </b></a>
+
+
+
                           <div class="modal fade" id="miUnidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -101,10 +98,10 @@
                                         <label for="exampleInputEmail2">Descripción</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
                                       </div>
-                                        
-    
+
+
                                     </form>
-                                          
+
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -119,15 +116,15 @@
                     <div class="col-12">
                         <div class="panel panel-info">
                             <div class="panel-heading">  UNIDAD 1
-                                
-                           
-                                        <a href="javascript:void(0)" class="pull-center btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#myModal" style="margin-left:20px; margin-top:0; color:#4f5467; background:#edf1f5; border: 1px solid #edf1f5;">Añadir tarea</a>        
-                                   
-                                
-                                
+
+
+                                        <a href="javascript:void(0)" class="pull-center btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#myModal" style="margin-left:20px; margin-top:0; color:#4f5467; background:#edf1f5; border: 1px solid #edf1f5;">Añadir tarea</a>
+
+
+
                                 <div class="pull-right"><a data-perform="panel-collapse"><i class="ti-minus"></i></a> <a  data-perform="panel-dismiss"><i class="ti-close"></i></a> </div>
                             </div>
-                            
+
                                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                               <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -147,18 +144,18 @@
                                         <label for="exampleInputEmail2">Descripción</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
                                       </div>
-                                        
+
                                            <div class="form-group">
                                         <label for="exampleInputEmail2">Fecha</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
                                       </div>
-                                        
+
                                            <div class="form-group">
                                         <label for="exampleInputEmail2">porcentaje</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
                                       </div>
                                     </form>
-                                          
+
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -208,16 +205,12 @@
                         </div>
                     </div>
                     <!-- /.col-lg-4 -->
-                 
+
                     <!-- /.col-lg-4 -->
                 </div>
-            
+
             </div>
         </div>
 
     </div>
 </div>
-
-
-
-
