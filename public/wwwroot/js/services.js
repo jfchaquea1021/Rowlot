@@ -294,15 +294,64 @@
             return promise;
         }
 
-        var getTask = function(idTask){
+        var getTask = function(idUnidad){
             var defer = $q.defer();
             var promise = defer.promise;
 
             let database = firebase.database();
-            let ref = database.ref('/Unidad/'+idTask);
+            let ref = database.ref('/Unidad/'+idUnidad);
+
             ref.on('value', function(data) {
                 defer.resolve(data.val());
             })
+            return promise;
+        }
+
+        var addUnidad = function(newUnidad){
+            var defer = $q.defer();
+            var promise = defer.promise;
+            try{
+                let database = firebase.database();
+                let ref = database.ref('Unidad');
+                let newChildUnidad = ref.child(newUnidad.title);
+                newChildUnidad.set(newUnidad);
+                defer.resolve(true);
+            }catch(err){
+                defer.reject(err);
+            }
+
+            return promise;
+        }
+
+        var addTask = function(idUnidad,newTask){
+            var defer = $q.defer();
+            var promise = defer.promise;
+            try{
+                let database = firebase.database();
+                let ref = database.ref('/Unidad/'+idUnidad+'/task');
+                let newChildTask = ref.child(newTask.title);
+                newChildTask.set(newTask);
+                defer.resolve(true);
+            }catch(err){
+                defer.reject(err);
+            }
+
+            return promise;
+        }
+        var putTask = function(unidad,task,data){
+            var defer = $q.defer();
+            var promise = defer.promise;
+            try{
+                let database = firebase.database();
+                let ref = database.ref('/Unidad/'+unidad+'/task');
+                let childTask = ref.child(task);
+                let childTaskStudents = childTask.child('/students/'+data.profile.uid);
+                childTaskStudents.update(data);
+                defer.resolve(true);
+            }catch(err){
+                defer.reject(err);
+            }
+
             return promise;
         }
 
@@ -321,6 +370,9 @@
             getMisc: getMisc,
             setMaxMoney:setMaxMoney,
             getTask:getTask,
+            addUnidad:addUnidad,
+            addTask:addTask,
+            putTask:putTask,
             // updateTitleActividad: updateTitleActividad
         }
     }

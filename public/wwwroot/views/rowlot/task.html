@@ -2,7 +2,8 @@
   <div class="container-fluid">
     <div class="row bg-title">
       <div class="col-12">
-        <h4 class="page-title"> UNIDAD 1</h4>
+        <pre>{{task}}</pre>
+        <h4 class="page-title">{{unidad.title}}</h4>
       </div>
     </div>
     <div class="white-box">
@@ -12,19 +13,19 @@
             <div class="p-20">
               <div class="row">
                 <div class="col-xs-6">
-                  <h3 class="m-t-0 font-medium">RESUMEN HCI</h3>
-                  <span class="text-muted">Entrega: 30 enero 2017</span>
+                  <h3 class="m-t-0 font-medium">RESUMEN {{task.title}}</h3>
+                  <span class="text-muted">Entrega:{{task.fecha}}</span>
                 </div>
               </div>
             </div>
             <div class="table-responsive">
               <ul>
-                <li>PORCENTAJE: <span class="text-muted"> 20% </span></li><br>
-                <li>CALIFICACIÓN: <span class="text-muted"> 5 </span></li><br>
-                <li>ENTREGADO: <span class="text-muted"> SI </span></li><br>
+                <li>PORCENTAJE: <span class="text-muted">{{(task.porcentaje)? task.porcentaje : "No tiene un porcentaje."}}</span></li><br>
+                <li>CALIFICACIÓN: <span class="text-muted">{{(task.calificacion)? task.calificacion : "No tiene una calificación."}} </span></li><br>
+                <li>ENTREGADO: <span class="text-muted">{{(task.entregado)? task.entregado : "No"}}</span></li><br>
                 <li>DESCRIPCION: <br>
                   <span class="text-muted">
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                        {{task.description}}
                     </span>
                 </li>
               </ul>
@@ -33,9 +34,9 @@
               <h3 class="box-title m-b-0">Entregar Tarea </h3>
               <form action="#" class="dropzone">
                 <div class="fallback">
-                  <input name="file" type="file" multiple /> </div>
+                  <input id="file" type="file" /> </div>
               </form>
-              <a href="#" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Enviar</a>
+              <button ng-click="func.sendFile()" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Enviar</button>
             </div>
             <div ng-show="showTeacher">
               <h3 class="box-title m-b-0">Entrega de la Tarea </h3>

@@ -135,7 +135,7 @@
 
         .state("auth.task", {
             page_title: "Rowlot - Task",
-            url: "/task/:idTask",
+            url: "/task/:idUnidad/:idTask",
             templateUrl: "views/rowlot/task.html",
             controller: "TaskController"
         })

@@ -1,216 +1,116 @@
-
-<div ng-show="showStudent">
-    <div id="wrapper">
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row bg-title">
-                    <div class="col-12">
-                        <h4 class="page-title"> Lista de Tareas</h4> </div>
-                </div>
-
-    <div class="row">
-                    <div class="col-12">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">  UNIDAD 1
-                                <div class="pull-right"><a data-perform="panel-collapse"><i class="ti-minus"></i></a> <a  data-perform="panel-dismiss"><i class="ti-close"></i></a> </div>
-                            </div>
-                            <div class="panel-wrapper collapse in" aria-expanded="true">
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                            <table class="table table-hover manage-u-table">
-                                <thead>
-                                    <tr>
-                                        <th width="70" class="text-center">#</th>
-                                        <th>NOMBRE</th>
-                                        <th>PORCENTAJE</th>
-                                        <th>CALIFICACIÓN</th>
-                                        <th>ENTREGADO</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody ng-init="database()">
-                                    <tr ng-repeat="(index,unidad) in unidades">
-                                        <td class="text-center">{{index+1}}</td>
-                                        <td>
-                                            <a ui-sref="auth.task({idTask:unidad.uid})"><span class="font-medium">{{unidad.data.Titulo}}</span>
-                                                <br/><span class="text-muted">Entrega: {{unidad.data.Fecha}}</span></a></td>
-                                        <td>
-                                            <span class="text-muted"> {{unidad.data.Porcentaje}} </span></td>
-
-                                        <td>
-                                            <span class="text-muted"> 5 </span></td>
-
-                                        <td>
-                                            <span class="text-muted"> SI </span></td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-
-                    <!-- /.col-lg-4 -->
-                </div>
-
-            </div>
+<div id="wrapper" ng-init="database()">
+  <div id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row bg-title">
+        <div class="col-12">
+          <h4 class="page-title"> Lista de Tareas</h4>
         </div>
+        <a ng-if="showTeacher" href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#miUnidad" style="background:#34aad0; border: 1px solid #edf1f5;"> <b>Añadir unidad </b></a>
+      </div>
+      <pre>{{unidades | json}}</pre>
+      <div class="row" ng-repeat="unidad in unidades track by $index">
+        <div class="col-12">
+          <div class="panel panel-info">
+            <div class="panel-heading"> {{unidad.data.title}}
+              <a ng-if="showTeacher" ng-click="showTaskModel(unidad.uid)" class="pull-center btn btn-rounded btn-success m-t-15"  style="margin-left:20px; margin-top:0; color:#4f5467; background:#edf1f5; border: 1px solid #edf1f5;">Añadir tarea</a>
+              <div class="pull-right"><a data-perform="panel-collapse"><i class="ti-minus"></i></a> <a data-perform="panel-dismiss"><i class="ti-close"></i></a> </div>
+            </div>
+            <div class="panel-wrapper collapse in" aria-expanded="true">
+              <div class="panel-body">
+                <div class="table-responsive">
+                  <table class="table table-hover manage-u-table">
+                    <thead>
+                      <tr>
+                        <th width="70" class="text-center">#</th>
+                        <th>NOMBRE</th>
+                        <th>PORCENTAJE</th>
+                        <th>CALIFICACIÓN</th>
+                        <th>ENTREGADO</th>
 
+                      </tr>
+                    </thead>
+                    <tbody >
+                      <tr ng-repeat="item in unidad.data.task track by $index">
+                        <td class="text-center">{{$index+1}}</td>
+                        <td>
+                          <a ui-sref="auth.task({idUnidad:unidad.uid,idTask:item.title})">
+                              <span class="font-medium">{{item.title}}</span>
+                              <br/>
+                              <span class="text-muted">Entrega: {{item.fecha}}</span>
+                          </a>
+                        </td>
+                        <td><span class="text-muted"> {{(item.porcentaje)? item.porcentaje : "No tiene un porcentaje."}} </span></td>
+                        <td><span class="text-muted"> {{(item.calificacion)? item.calificacion : "No tiene una calificación."}} </span></td>
+                        <td><span class="text-muted"> {{(item.entregado)? item.entregado : "No"}} </span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 
-
 <!--  TEACHER -->
-
-
-<div ng-show="showTeacher">
-    <div id="wrapper">
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <div class="row bg-title">
-                    <div class="col-12">
-                        <h4 class="page-title"> Lista de Tareas</h4> </div>
-
-                     <a href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#miUnidad" style="background:#34aad0; border: 1px solid #edf1f5;"> <b>Añadir unidad </b></a>
-
-
-
-                          <div class="modal fade" id="miUnidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title">Añadir Unidad</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                    <form>
-                                      <div class="form-group">
-                                        <label for="exampleInputEmail1">  Titulo de la unidad</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de la unidad">
-                                      </div>
-                                      <div class="form-group">
-                                        <label for="exampleInputEmail2">Descripción</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
-                                      </div>
-
-
-                                    </form>
-
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Aceptar</button>
-                                  </div>
-                                </div>
-                              </div>
-                          </div>
-                </div>
-
-    <div class="row">
-                    <div class="col-12">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">  UNIDAD 1
-
-
-                                        <a href="javascript:void(0)" class="pull-center btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#myModal" style="margin-left:20px; margin-top:0; color:#4f5467; background:#edf1f5; border: 1px solid #edf1f5;">Añadir tarea</a>
-
-
-
-                                <div class="pull-right"><a data-perform="panel-collapse"><i class="ti-minus"></i></a> <a  data-perform="panel-dismiss"><i class="ti-close"></i></a> </div>
-                            </div>
-
-                                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title">Añadir tarea</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                    <form>
-                                      <div class="form-group">
-                                        <label for="exampleInputEmail1">  Titulo de la tarea</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de la unidad">
-                                      </div>
-                                      <div class="form-group">
-                                        <label for="exampleInputEmail2">Descripción</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
-                                      </div>
-
-                                           <div class="form-group">
-                                        <label for="exampleInputEmail2">Fecha</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
-                                      </div>
-
-                                           <div class="form-group">
-                                        <label for="exampleInputEmail2">porcentaje</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
-                                      </div>
-                                    </form>
-
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Aceptar</button>
-                                  </div>
-                                </div>
-                              </div>
-                          </div>
-                            <div class="panel-wrapper collapse in" aria-expanded="true">
-                                <div class="panel-body">
-                                    <div class="table-responsive">
-                            <table class="table table-hover manage-u-table">
-                                <thead>
-                                    <tr>
-                                        <th width="70" class="text-center">#</th>
-                                        <th>NOMBRE</th>
-                                        <th>PORCENTAJE</th>
-                                        <th>CALIFICACIÓN</th>
-                                        <th>ENTREGADO</th>
-
-                                    </tr>
-                                </thead>
-                                <tbody ng-init="database()">
-                                    <tr ng-repeat="(index,unidad) in unidades">
-                                        <td class="text-center">{{index+1}}</td>
-                                        <td>
-                                            <a ui-sref="auth.task"><span class="font-medium">{{unidad.data.Titulo}}</span>
-                                                <br/><span class="text-muted">Entrega: {{unidad.data.Fecha}}</span></a></td>
-                                        <td>
-                                            <span class="text-muted"> {{unidad.data.Porcentaje}} </span></td>
-
-                                        <td>
-                                            <span class="text-muted"> 5 </span></td>
-
-                                        <td>
-                                            <span class="text-muted"> SI </span></td>
-
-
-
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-
-                    <!-- /.col-lg-4 -->
-                </div>
-
-            </div>
-        </div>
-
+<div class="modal fade" id="miUnidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Añadir Unidad</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">  Titulo de la unidad</label>
+            <input type="text" ng-model="unidad.title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de la unidad">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2">Descripción</label>
+            <textarea type="text" class="form-control" ng-model="unidad.description" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" ng-click="addUnidad()" >Aceptar</button>
+      </div>
     </div>
+  </div>
+</div>
+
+<div class="modal fade" id="miTask" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">Añadir Tarea</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">  Titulo de la tarea</label>
+            <input type="text" ng-model="task.title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de la unidad">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail2">Descripción</label>
+            <textarea type="text" class="form-control" ng-model="task.description" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" ng-click="addTask()" >Aceptar</button>
+      </div>
+    </div>
+  </div>
 </div>
