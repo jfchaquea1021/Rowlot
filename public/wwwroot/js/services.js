@@ -346,7 +346,7 @@
                 let ref = database.ref('/Unidad/'+unidad+'/task');
                 let childTask = ref.child(task);
                 let childTaskStudents = childTask.child('/students/'+idUser);
-                childTaskStudents.set(data);
+                childTaskStudents.update(data);
                 defer.resolve(true);
             }catch(err){
                 defer.reject(err);

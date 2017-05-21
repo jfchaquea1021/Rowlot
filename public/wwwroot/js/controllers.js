@@ -44,7 +44,8 @@
                 //    console.log("Users", response);
                 $scope.countMedallaUser = 0;
                 for (var i in response) {
-                    if(isNaN(response[i].data.Moneda)){
+                    if(response[i].data.Tipo == "Estudiante"){
+                        if(isNaN(response[i].data.Moneda)){
                         response[i].data.Moneda = 0;
                     }
                     if(isNaN(response[i].data.Medalla)){
@@ -56,6 +57,8 @@
                     $scope.countMoneyUser += response[i].data.Moneda;
                     $scope.countMedallaUser += response[i].data.Medalla;
                     $scope.users.push(response[i]);
+                    }
+                    
                 }
                 //$scope.users = response;
                 //console.log("ENTRO ACTIVIDAD",$scope.users);
@@ -98,7 +101,6 @@
                                         value.calificacion = v.calificacion;
                                         value.entregado = v.entregado;
                                         value.fecha = v.fecha;
-                                        value.porcentaje = v.porcentaje;
                                     }
                                 });
                                 copy.data.task.push(value);
@@ -354,7 +356,6 @@
                             $scope.task.calificacion = value.calificacion;
                             $scope.task.fecha = value.fecha;
                             $scope.task.entregado = value.entregado;
-                            $scope.task.porcentaje = value.porcentaje;
                             arrFileStudent.push(value);
                         }
                     } else {

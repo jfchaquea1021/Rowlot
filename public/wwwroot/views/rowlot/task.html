@@ -13,17 +13,14 @@
                             <div class="row">
                                 <div class="col-xs-6">
                                     <h3 class="m-t-0 font-medium">RESUMEN {{task.title}}</h3>
-                                    <span class="text-muted" ng-show="showStudent">Entrega:{{task.fecha}}</span>
+                                    <span class="text-muted" ng-if="showStudent">Entrega:{{task.fecha}}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="table-responsive">
                             <ul>
-                                <li ng-show="showStudent">PORCENTAJE: <span class="text-muted">{{(task.porcentaje)? task.porcentaje : "No tiene un porcentaje."}}</span></li>
+                                <li >PORCENTAJE: <span class="text-muted">{{(task.porcentaje)? task.porcentaje : "No tiene un porcentaje."}}</span></li>
                                 <br>
-                                <li ng-show="showStudent">CALIFICACIÓN: <span class="text-muted">{{(task.calificacion)? task.calificacion : "No tiene una calificación."}} </span></li>
-                                <br>
-                                <li ng-show="showStudent">ENTREGADO: <span class="text-muted">{{(task.entregado)? task.entregado : "No"}}</span></li>
                                 <br>
                                 <li>DESCRIPCION:
                                     <br>
@@ -31,6 +28,9 @@
                         {{task.description}}
                     </span>
                                 </li>
+                                <li ng-if="showStudent">CALIFICACIÓN: <span class="text-muted">{{(task.calificacion)? task.calificacion : "No tiene una calificación."}} </span></li>
+                                <br>
+                                <li ng-if="showStudent">ENTREGADO: <span class="text-muted">{{(task.entregado)? task.entregado : "No"}}</span></li>
                             </ul>
                         </div>
                         <div ng-show="showStudent && !task.entregado">
@@ -48,7 +48,6 @@
                                 <div class="white-box" style="padding: 1px 10px 25px;border-radius: 5px;">
                                     <h4 class="m-t-20 m-b-20"><strong>{{file.profile.Nombre}} {{file.profile.Apellido}}</strong></h4>
                                     <h6 class="m-t-20 m-b-20"><strong>Calificación:</strong> {{(file.calificacion)? file.calificacion : "No tiene una calificación."}}</h6>
-                                    <h6 class="m-t-20 m-b-20"><strong>Porcentaje:</strong>{{(file.porcentaje)? file.porcentaje : "No tiene un procentaje."}}</h6>
                                     <h6 class="m-t-20 m-b-20"><strong>Fecha entrega:</strong>{{file.fecha}}</h6>
                                     <div class="btn-group">
                                         <a class="btn btn-success" href="{{file.downloadurl}}">Descargar</a>
@@ -77,10 +76,6 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Calificación</label>
                         <input type="text" ng-model="fileSelected.calificacion" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Calificación del estudiante en la tarea">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail2">Porcentaje</label>
-                        <input type="text" class="form-control" ng-model="fileSelected.porcentaje" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Porcentaje del estudiante en la tarea."></input>
                     </div>
                 </form>
             </div>
