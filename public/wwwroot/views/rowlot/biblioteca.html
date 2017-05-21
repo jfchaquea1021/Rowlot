@@ -1,6 +1,4 @@
-
-<div id="wrapper">
-
+<div id="wrapper" ng-init="func.init()">
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row bg-title">
@@ -9,64 +7,28 @@
             </div>
         </div>
         <!-- MIGA DE NAVEGACIoN -->
-      <a href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#miUnidad" style="background:#34aad0; border: 1px solid #edf1f5;"> <b>Añadir Lectura </b></a>        
-                            
-                            
-           
-                  <div class="modal fade" id="miUnidad" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    <h4 class="modal-title">Añadir lectura</h4>
-                                  </div>
-                                  <div class="modal-body">
-                                    <form>
-                                      <div class="form-group">
-                                        <label for="exampleInputEmail1">  Titulo de la Lectura</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre de la unidad">
-                                      </div>
-                                      <div class="form-group">
-                                        <label for="exampleInputEmail2">Descripción</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe una descripción de la unidad">
-                                      </div>
-                                            <div class="form-group">
-                                           <form action="#" class="dropzone">
-                                <div class="fallback">
-                                    <input name="file" type="file" multiple /> </div>
-                            </form>
-    </div>
-                                    </form>
-                                          
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="button" class="btn btn-primary"  data-dismiss="modal">Aceptar</button>
-                                  </div>
-                                </div>
-                              </div>
-                          </div>
+        <a href="javascript:void(0)" class="pull-right btn btn-rounded btn-success m-t-15" data-toggle="modal" data-target="#modalLibrary" style="background:#34aad0; border: 1px solid #edf1f5;" ng-show="showTeacher"> <b>Añadir Lectura </b></a>
+        
         <div class="gridListdemoBasicUsage">
             <h1>Lecturas</h1>
             <div class='md-padding' layout="row" layout-wrap>
                 <tbody ng-init="database()">
                     <md-card style="width: 300px;" ng-repeat="(index,lectura) in lecturas">
-                        <img src="{{lectura.data.ImagenUrl}}" class="md-card-image" alt="user avatar">
+                        <img ng-src="{{lectura.data.ImagenUrl}}" class="md-card-image" alt="user avatar">
                         <md-card-content>
                             <table>
-                                <tr >
+                                <tr>
                                     <td>
                                         <h2>{{lectura.data.Titulo}}</h2>
-
                                         <p>{{lectura.data.Descripcion}}</p>
                                     </td>
                                 </tr>
                             </table>
                         </md-card-content>
                         <div class="md-actions" layout="row" layout-align="end center">
-                            <a ng-href="{{lectura.data.Url}}" target="_blank" ><md-button>Ver</md-button></a>
+                            <a ng-href="{{lectura.data.Url}}" target="_blank">
+                                <md-button>Ver</md-button>
+                            </a>
                         </div>
                     </md-card>
                 </tbody>
@@ -74,3 +36,39 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="modalLibrary" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Añadir lectura</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"> Titulo de la Lectura</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Titulo de la lectura" ng-model="newLectura.Titulo">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail2">Descripción</label>
+                                <textarea type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Descripción de la lectura" ng-model="newLectura.Descripcion"></textarea>
+                            </div>
+                            <div class="form-group">
+                              <label for="file">Archivo de lectura</label>
+                              <input name="file" type="file" id="fileLectura" /> 
+                            </div>
+                            <div class="form-group">
+                              <label for="file">Imagen portada</label>
+                              <input name="file" type="file" id="portadaLectura" /> 
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" ng-click="func.addLectura()">Aceptar</button>
+                    </div>
+                </div>
+            </div>
+        </div>

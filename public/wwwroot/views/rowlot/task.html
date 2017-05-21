@@ -1,267 +1,94 @@
-
-<div ng-show="showStudent">
-
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row bg-title">
-                <div class="col-12">
-                    <h4 class="page-title"> UNIDAD 1</h4> </div>
-
-
-            </div>
-
-
-
-            <div class="white-box">
-                <div class="col-12">
-                    <div class="unidades">
-                        <div class="panel">
-
-                            <div class="p-20">
-                                <div class="row">
-                                    <div class="col-xs-6">
-
-                                        <h3 class="m-t-0 font-medium">RESUMEN HCI</h3>
-                                        <span class="text-muted">Entrega: 30 enero 2017</span>
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="table-responsive">
-
-                                <ul>
-
-
-                                    <li>PORCENTAJE: <span class="text-muted"> 20% </span></li><br>
-                                    <li>CALIFICACIÓN: <span class="text-muted"> 5 </span></li><br>
-                                    <li>ENTREGADO: <span class="text-muted"> SI </span></li><br>
-                                    <li>DESCRIPCION: <br><span class="text-muted"> 
-                                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-
-
-                                        </span></li>
-                                </ul>
-
-                            </div>
-
-
-
-                            <h3 class="box-title m-b-0">Entregar Tarea </h3>
-
-                            <form action="#" class="dropzone">
-                                <div class="fallback">
-                                    <input name="file" type="file" multiple /> </div>
-                            </form>
-
-                            <a href="#" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Enviar</a>
-                        </div>
-                    </div>
-                </div>
+<div id="page-wrapper" ng-init="func.init()">
+    <div class="container-fluid">
+        <div class="row bg-title">
+            <div class="col-12">
+                <h4 class="page-title">{{unidad.title}}</h4>
             </div>
         </div>
-    </div>
-
-
-
-</div>
-
-
-
-
-
-<div ng-show="showTeacher">
-
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row bg-title">
-                <div class="col-12">
-                    <h4 class="page-title"> UNIDAD 1</h4> </div>
-
-
-            </div>
-
-
-
-            <div class="white-box">
-                <div class="col-12">
-
+        <div class="white-box">
+            <div class="col-12">
+                <div class="unidades">
                     <div class="panel">
-
                         <div class="p-20">
                             <div class="row">
                                 <div class="col-xs-6">
-
-                                    <h3 class="m-t-0 font-medium">RESUMEN HCI</h3>
-                                    <span class="text-muted">Entrega: 30 enero 2017</span>
+                                    <h3 class="m-t-0 font-medium">RESUMEN {{task.title}}</h3>
+                                    <span class="text-muted" ng-show="showStudent">Entrega:{{task.fecha}}</span>
                                 </div>
-
                             </div>
                         </div>
-
-
                         <div class="table-responsive">
-
                             <ul>
-
-
-                                <li><b>Porcentaje</b><span class="text-muted"> 20% </span></li><br>
-     
-                                <li><b>Descripción</b> <br><span class="text-muted"> 
-                                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
-
-
-                                    </span></li>
+                                <li ng-show="showStudent">PORCENTAJE: <span class="text-muted">{{(task.porcentaje)? task.porcentaje : "No tiene un porcentaje."}}</span></li>
+                                <br>
+                                <li ng-show="showStudent">CALIFICACIÓN: <span class="text-muted">{{(task.calificacion)? task.calificacion : "No tiene una calificación."}} </span></li>
+                                <br>
+                                <li ng-show="showStudent">ENTREGADO: <span class="text-muted">{{(task.entregado)? task.entregado : "No"}}</span></li>
+                                <br>
+                                <li>DESCRIPCION:
+                                    <br>
+                                    <span class="text-muted">
+                        {{task.description}}
+                    </span>
+                                </li>
                             </ul>
-
                         </div>
-
-
-
-                       
-
-
-                        <!--div class="table-responsive">
-                            <table class="table  primary-table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Estudiante</th>
-                                        <th>Entrega<br>  <span class="text-muted">20%</span></th>
-                                        <th>Calificación<br><span class="text-muted">30%</span></th>
-                                        <th>Calificar<br><span class="text-muted">25%</span></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Daniela Medina</td>
-                                        <td>(archivo pdf)</td>
-                                        <td>3.5</td>
-                                        <td>
-                                            <input id="{{user.uid}}" min="0" type="number" ng-model='coins' style="width: 50px;" />
-
-                                            <button type= "button" class="btn btn-info btn-outline btn-circle btn-sm m-r-5" ng-click="">+</button>
-
-
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Daniela Medina</td>
-                                        <td>(archivo pdf)</td>
-                                        <td>3.5</td>
-                                        <td> <input id="{{user.uid}}" min="0" type="number" ng-model='coins' style="width: 50px;" />
-
-                                            <button type= "button" class="btn btn-info btn-outline btn-circle btn-sm m-r-5" ng-click="">+</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Daniela Medina</td>
-                                        <td>(archivo pdf)</td>
-                                        <td>3.5</td>
-                                        <td> <input id="{{user.uid}}" min="0" type="number" ng-model='coins' style="width: 50px;" />
-
-                                            <button type= "button" class="btn btn-info btn-outline btn-circle btn-sm m-r-5" ng-click="">+</button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div-->
-
-
-
-
-
-                    </div>
+                        <div ng-show="showStudent && !task.entregado">
+                            <h3 class="box-title m-b-0">Entregar Tarea </h3>
+                            <form action="#" class="dropzone">
+                                <div class="fallback">
+                                    <input id="file" type="file" /> </div>
+                            </form>
+                            <button ng-click="func.sendFile()" target="_blank" class="btn btn-danger pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light">Enviar</button>
                         </div>
-            </div>
-                    
-                     <h3 class="box-title m-b-0">Entrega de la Tarea </h3>
-                     <div class="row">
-                    <div class="col-md-2 col-lg-2 col-xs-12 col-sm-8"> <img class="img-responsive" alt="user" src="plugins/images/pdfu.jpg">
-                        <div class="white-box" style="padding: 1px 10px 25px;
-    border-radius: 5px;">
-               
-                            <h3 class="m-t-20 m-b-20">Daniela Sanchez - Goings</h3>
-                           
-                            <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Descargar</button>
+                        <h3 class="box-title m-b-0">Entrega de la Tarea </h3>
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 col-xs-12 col-sm-12" ng-repeat="file in dataFileStudent">
+                                <img class="img-responsive" alt="user" src="plugins/images/pdfu.jpg">
+                                <div class="white-box" style="padding: 1px 10px 25px;border-radius: 5px;">
+                                    <h4 class="m-t-20 m-b-20"><strong>{{file.profile.Nombre}} {{file.profile.Apellido}}</strong></h4>
+                                    <h6 class="m-t-20 m-b-20"><strong>Calificación:</strong> {{(file.calificacion)? file.calificacion : "No tiene una calificación."}}</h6>
+                                    <h6 class="m-t-20 m-b-20"><strong>Porcentaje:</strong>{{(file.porcentaje)? file.porcentaje : "No tiene un procentaje."}}</h6>
+                                    <h6 class="m-t-20 m-b-20"><strong>Fecha entrega:</strong>{{file.fecha}}</h6>
+                                    <div class="btn-group">
+                                        <a class="btn btn-success" href="{{file.downloadurl}}">Descargar</a>
+                                        <button class="btn btn-info" ng-click="func.showModalFile(file,$index); " ng-show="showTeacher">Editar</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-2 col-lg-2 col-xs-12 col-sm-8"> <img class="img-responsive" alt="user" src="plugins/images/pdfu.jpg">
-                        <div class="white-box" style="padding: 1px 10px 25px;
-    border-radius: 5px;">
-                
-                            <h3 class="m-t-20 m-b-20">Juan Londoño - MochilApp</h3>
-                           
-                            <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Descargar</button>
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-lg-2 col-xs-12 col-sm-8"> <img class="img-responsive" alt="user" src="/plugins/images/pdfu.jpg">
-                        <div class="white-box" style="padding: 1px 10px 25px;
-    border-radius: 5px;">
-              
-                            <h3 class="m-t-20 m-b-20">Ana Martinez - Changer</h3>
-                         
-                            <button class="btn btn-success btn-rounded waves-effect waves-light m-t-20">Descargar</button>
-                        </div>
-                    </div>
-                         
-                         
-                         
                 </div>
-            
+            </div>
         </div>
     </div>
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="modal fade" id="fileSelected" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">{{fileSelected.profile.Nombre}} {{fileSelected.profile.Apellido}}</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Calificación</label>
+                        <input type="text" ng-model="fileSelected.calificacion" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Calificación del estudiante en la tarea">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail2">Porcentaje</label>
+                        <input type="text" class="form-control" ng-model="fileSelected.porcentaje" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Porcentaje del estudiante en la tarea."></input>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" ng-click="func.putFileSelected()">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- acordeon -->
-
-
-
-
-
-
-
-
-

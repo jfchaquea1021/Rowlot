@@ -11,7 +11,7 @@
                     <div class="col-lg-4 col-sm-4 col-xs-12">
                         <div class="white-box-monedas analytics-info">
                             <h3 class="box-title" style="text-align:center; color: #525252;"><b>Monedas</b></h3>
-                            <h1 class="text-center"> <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;"> 1000</h1>
+                            <h1 class="text-center"> <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{countMoneyUser}}</h1>
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-4 col-xs-12">
@@ -24,7 +24,7 @@
                     <div class="col-lg-4 col-sm-4 col-xs-12">
                         <div class="white-box-monedas analytics-info">
                             <h3 class="box-title" style="text-align:center; color: #525252;"><b>Medallas</b></h3>
-                            <h1 class="text-center"> <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">8</h1>
+                            <h1 class="text-center"> <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{countMedallaUser}}</h1>
                         </div>
                     </div>
                 </div>
@@ -72,9 +72,9 @@
                                                             </td>
                                                             <td class="text-center">{{user.data.Moneda}}</td>
                                                             <td>
-                                                                <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>60%</b>   </span> </p>
+                                                                <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>{{(user.data.Moneda*100)/misc.maxMoney | number : 2}}%</b>   </span> </p>
                                                                 <div class="progress progress-striped active">
-                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; background: #ffc36d;border-radius: 6px; "> <span class="sr-only">60% Complete (success)</span> </div>
+                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="(user.data.Moneda*100)/misc.maxMoney" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': ((user.data.Moneda*100)/misc.maxMoney)+'%', 'background': '#ffc36d','border-radius': '6px'}"> <span class="sr-only">{{(user.data.Moneda*100)/misc.maxMoney | number : 2}}% Complete (success)</span> </div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -111,10 +111,9 @@
                                                             </td>
                                                             <td class="text-center">{{user.data.Vida}}</td>
                                                             <td>
-                                                                <div>
-                                                                    <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>60%</b>   </span> </p>
+                                                                    <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>{{(user.data.Vida*100)/8}}%</b>   </span> </p>
                                                                     <div class="progress progress-striped active">
-                                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; background: #ffc36d;border-radius: 6px; "> <span class="sr-only">60% Complete (success)</span> </div>
+                                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': ((user.data.Vida*100)/8)+'%', 'background': '#ffc36d','border-radius': '6px'}"> <span class="sr-only">{{(user.data.Vida*100)/8}}% Complete (success)</span> </div>
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -152,9 +151,10 @@
                                                             </td>
                                                             <td class="text-center">{{user.data.Medalla}}</td>
                                                             <td>
-                                                                <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>60%</b>   </span> </p>
+                                                               
+                                                                <p> <span style="margin-right: 10px" class="pull-left text-muted"><b>{{countMedallaUser == 0 ? 0 :(user.data.Medalla*100)/countMedallaUser}}%</b>   </span> </p>
                                                                 <div class="progress progress-striped active">
-                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; background: #ffc36d;border-radius: 6px; "> <span class="sr-only">60% Complete (success)</span> </div>
+                                                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" ng-style="{'width': ((user.data.Medalla*100)/countMedallaUser)+'%', 'background': '#ffc36d','border-radius': '6px'}"> <span class="sr-only">{{(user.data.Medalla*100)/countMedallaUser}}% Complete (success)</span> </div>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -188,12 +188,14 @@
                                 <h1 class="text-center" ng-click="showEditMoney();" > <img src="plugins/images/moneda.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{misc.maxMoney}}</h1>
 
                             </a>
-                            <div class="form-group" ng-if="!showMoney">
+                            <div class="input-group" ng-if="!showMoney">
                                 <input  ng-model="misc.newMaxMoney" type="number" class="form-control"/>
-                                <button class="btn btn-success"  ng-click="setMaxMoney();">Guardar</button>
-                                <button class="btn btn-danger"  ng-click="showEditMoney();">Cancelar</button>
+                                <span class="input-group-btn">
+                                  <button class="btn btn-success"  ng-click="setMaxMoney();"><i class="glyphicon glyphicon-ok"></i></button>
+                                  <button class="btn btn-danger"  ng-click="showEditMoney();"><i class="glyphicon glyphicon-remove"></i></button>
+                                </span>
+
                             </div>
-                            
                         </div>
                     </div>
                     <div class="col-lg-4 col-sm-4 col-xs-12">
@@ -209,7 +211,7 @@
                         <div class="white-box-monedas analytics-info">
                             <a href="#medallasT" data-toggle="tab">
                                 <h3 class="box-title" style="text-align:center; color: #525252;"><b>Medallas Máximas</b></h3>
-                                <h1 class="text-center"> <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">8</h1>
+                                <h1 class="text-center"> <img src="plugins/images/medalla.png" alt="Smiley face" height="42" width="42" style="margin-right: 10px;">{{countMedallaUser}}</h1>
                             </a>
                         </div>
                     </div>
