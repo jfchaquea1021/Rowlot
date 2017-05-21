@@ -241,6 +241,7 @@
                     $scope.unidad = {};
                     $scope.unidades.push(response);
                     $("#miUnidad").modal("hide");
+                    location.reload();
                 })
                 .catch(function(err) {
                     console.error(err);
@@ -424,7 +425,7 @@
             putFileSelected: function() {
                 RowlotService.putTaskStudent({ unidad: $scope.idUnidad, task: $scope.idTask, user: $scope.idUserSelected }, $scope.fileSelected)
                     .then(function(data) {
-                        $scope.dataFileStudent[$scope.indexSelected].procentaje = $scope.fileSelected.porcentaje;
+                        $scope.dataFileStudent[$scope.indexSelected].porcentaje = $scope.fileSelected.porcentaje;
                         $scope.dataFileStudent[$scope.indexSelected].calificacion = $scope.fileSelected.calificacion;
                         $("#fileSelected").modal('hide');
                     })
